@@ -1,0 +1,121 @@
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.feature-slide {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100vh;
+  min-height: 80vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+  position: relative;
+  transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1), background-position 0.45s ease;
+}
+
+.feature-slide.active {
+  transform: scale(1.02);
+}
+
+/* Slide background and color theme */
+.slide-bg {
+  background-color: #e9edf1; /* fallback */
+  background-image: linear-gradient(180deg, #f7f8fa 0%, #e9edf1 100%);
+}
+
+.feature-slide .display-5 {
+  color: #0f1724; /* deep slate */
+}
+
+.feature-slide .h6,
+.feature-slide .lead {
+  color: #334155; /* muted slate */
+}
+
+.feature-slide .btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  color: #fff;
+}
+
+.feature-slide .btn-outline-primary {
+  color: #0d6efd;
+  border-color: rgba(13, 110, 253, 0.15);
+}
+
+.feature-slide .btn-lg {
+  padding: 0.6rem 1.15rem;
+  border-radius: 8px;
+}
+
+/* Useful text helpers */
+.text-white-75 {
+  color: rgba(255, 255, 255, 0.75);
+}
+.text-white-50 {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Progress Bars restored to original behaviour */
+.progress-bar-group {
+  position: absolute;
+  bottom: 48px;
+  left: calc(8% - 8px); /* nudge left to align with content */
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 5;
+  width: calc(60% - 40px);
+  max-width: 720px;
+}
+
+.align-content {
+  left: 6.8%;
+  margin-left: 0;
+}
+
+.progress-bar-wrapper {
+  width: 90px;
+  height: 8px;
+  background: rgba(15, 23, 36, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+  transition: width 0.4s ease, background 0.25s ease;
+  box-shadow: 0 2px 6px rgba(12, 16, 24, 0.04);
+}
+
+.progress-bar-wrapper.active {
+  width: 180px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #0d6efd 0%, #2a92ff 100%);
+  width: 0%;
+  transition: width 0.25s linear;
+}
+
+@media (max-width: 768px) {
+  .feature-slide {
+    min-height: 60vh;
+    height: auto;
+  }
+
+  .feature-slide-content {
+    text-align: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    max-width: 100%;
+  }
+
+  .progress-bar-group {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+  }
+}

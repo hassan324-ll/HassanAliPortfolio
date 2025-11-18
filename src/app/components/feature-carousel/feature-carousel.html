@@ -1,0 +1,46 @@
+﻿<div class="carousel-container">
+  <owl-carousel-o [options]="carouselOptions" (translated)="onTranslated($event)" #owl>
+    <ng-container *ngFor="let feature of features; let i = index">
+      <ng-template carouselSlide>
+        <div
+          class="feature-slide position-relative d-flex align-items-center slide-bg"
+          [class.active]="i === activeIndex"
+        >
+          <div class="container position-relative">
+            <div class="row">
+              <div class="col-12 col-md-8">
+                <div class="py-5 py-md-6 d-flex align-items-center" style="min-height: 60vh">
+                  <div class="text-start text-md-start text-dark">
+                    <h1 class="display-5 fw-bold">{{ feature.title }}</h1>
+                    <h4 class="h6 text-muted">{{ feature.subtitle }}</h4>
+                    <p class="lead text-dark">{{ feature.bio }}</p>
+                    <div class="d-flex flex-wrap gap-2 mt-3">
+                      <button
+                        *ngFor="let btn of feature.buttons; let idx = index"
+                        class="btn btn-lg"
+                        [ngClass]="{ 'btn-primary': idx === 0, 'btn-outline-primary': idx !== 0 }"
+                        (click)="onButtonClick(btn.action)"
+                      >
+                        {{ btn.text }}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+
+  <div class="progress-bar-group align-content">
+    <div
+      *ngFor="let feature of features; let i = index"
+      class="progress-bar-wrapper"
+      [class.active]="i === realProgressIndex"
+    >
+      <div class="progress-bar" [style.width.%]="progressValues[i]"></div>
+    </div>
+  </div>
+</div>

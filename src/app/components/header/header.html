@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2 sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center gap-2" routerLink="/">
+      <span class="logo-wrapper">
+        <img
+          src="./logo.png"
+          alt="Hassan Ali Logo"
+          class="logo-img img-fluid"
+          style="object-fit: contain"
+        />
+      </span>
+      <span class="fw-bold fs-5 text-dark">Hassan Ali</span>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#mainNavbar"
+      aria-controls="mainNavbar"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3">
+        <li class="nav-item">
+          <a
+            class="nav-link active d-flex align-items-center gap-1"
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <i class="fas fa-home"></i> Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link d-flex align-items-center gap-1"
+            routerLink="/about-me"
+            routerLinkActive="active"
+          >
+            <i class="fas fa-user"></i> About Me
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link d-flex align-items-center gap-1"
+            routerLink="/projects"
+            routerLinkActive="active"
+          >
+            <i class="fas fa-briefcase"></i> Projects
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link d-flex align-items-center gap-1"
+            routerLink="/contact"
+            routerLinkActive="active"
+          >
+            <i class="fas fa-envelope"></i> Contact
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
