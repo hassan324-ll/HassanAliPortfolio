@@ -33,7 +33,7 @@ export class Projects implements OnInit {
       live: '#',
       repo: '#',
       category: 'web',
-      photos: ['/products.png', '/menu.png', '/staff.png'],
+      photos: ['/products.png', '/menu.png', '/Staff.png'],
     },
     {
       title: 'Design System UI Kit',
