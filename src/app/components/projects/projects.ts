@@ -26,14 +26,14 @@ export class Projects implements OnInit {
 
   projects = [
     {
-      title: 'Portfolio Website',
-      description: 'A modern portfolio built with Angular showcasing projects and blog posts.',
-      image: '/sliderimage.avif',
+      title: 'Restarant Web App',
+      description: 'A modern restaurant web application with online ordering and real analytics.',
+      image: '/Main image.png',
       tech: ['Angular', 'TypeScript', 'Bootstrap'],
       live: '#',
       repo: '#',
       category: 'web',
-      photos: ['/sliderimage.avif', '/sliderimage.avif'],
+      photos: ['/products.png', '/menu.png', '/staff.png'],
     },
     {
       title: 'Design System UI Kit',
@@ -57,20 +57,8 @@ export class Projects implements OnInit {
     },
   ];
 
-  private storageKey = 'hassan_portfolio_projects_v1';
-
   ngOnInit() {
-    try {
-      const raw = localStorage.getItem(this.storageKey);
-      if (raw) {
-        const parsed = JSON.parse(raw);
-        if (Array.isArray(parsed) && parsed.length) {
-          this.projects = parsed;
-        }
-      }
-    } catch (e) {
-      console.warn('Failed to load projects from localStorage', e);
-    }
+    // No localStorage override; always use hardcoded projects array
   }
 
   closeModal() {
