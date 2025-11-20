@@ -3,12 +3,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './projects.html',
   styleUrls: ['./projects.css'],
 })
@@ -60,37 +59,6 @@ export class Projects implements OnInit {
 
   private storageKey = 'hassan_portfolio_projects_v1';
 
-  isOwner = true; // Set to false for public
-  showModal = false;
-  modalProject: any = {
-    title: '',
-    description: '',
-    image: '',
-    tech: [],
-    techString: '',
-    photos: [],
-    photosString: '',
-    live: '',
-    repo: '',
-    category: 'web',
-  };
-
-  openModal() {
-    this.showModal = true;
-    this.modalProject = {
-      title: '',
-      description: '',
-      image: '',
-      tech: [],
-      techString: '',
-      photos: [],
-      photosString: '',
-      live: '',
-      repo: '',
-      category: 'web',
-    };
-  }
-
   ngOnInit() {
     try {
       const raw = localStorage.getItem(this.storageKey);
@@ -106,36 +74,7 @@ export class Projects implements OnInit {
   }
 
   closeModal() {
-    this.showModal = false;
-  }
-
-  addProject() {
-    // Convert techString to array
-    this.modalProject.tech = (this.modalProject.techString || '')
-      .split(',')
-      .map((t: string) => t.trim())
-      .filter((t: string) => t);
-    // Merge photos from pasted URLs with any uploaded data-URLs already present
-    const pasted = (this.modalProject.photosString || '')
-      .split(',')
-      .map((p: string) => p.trim())
-      .filter((p: string) => p);
-    this.modalProject.photos = Array.isArray(this.modalProject.photos)
-      ? this.modalProject.photos.concat(pasted)
-      : pasted;
-    // Remove techString and photosString from final object
-    const { techString, photosString, ...projectData } = this.modalProject;
-    this.projects.push(projectData);
-    this.saveProjects();
-    this.closeModal();
-  }
-
-  private saveProjects() {
-    try {
-      localStorage.setItem(this.storageKey, JSON.stringify(this.projects));
-    } catch (e) {
-      console.warn('Failed to save projects to localStorage', e);
-    }
+    // modal removed
   }
 
   showPhotos(p: any) {
@@ -206,52 +145,7 @@ export class Projects implements OnInit {
   }
 
   onFilesSelected(event: Event) {
-    const input = event.target as HTMLInputElement;
-    if (!input || !input.files) return;
-    const files = Array.from(input.files);
-    const readers = files.map((file) => {
-      return new Promise<string | null>((resolve) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(typeof reader.result === 'string' ? reader.result : null);
-        reader.onerror = () => resolve(null);
-        reader.readAsDataURL(file);
-      });
-    });
-
-    Promise.all(readers).then((results) => {
-      const urls = results.filter(Boolean) as string[];
-      this.modalProject.photos = Array.isArray(this.modalProject.photos)
-        ? this.modalProject.photos.concat(urls)
-        : urls;
-      if (!this.modalProject.image && this.modalProject.photos && this.modalProject.photos.length) {
-        this.modalProject.image = this.modalProject.photos[0];
-      }
-    });
-    // Reset file input so same file can be selected again if needed
-    input.value = '';
-  }
-
-  onMainImageSelected(event: Event) {
-    const input = event.target as HTMLInputElement;
-    if (!input || !input.files || input.files.length === 0) return;
-    const file = input.files[0];
-    const reader = new FileReader();
-    reader.onload = () => {
-      const result = reader.result;
-      if (typeof result === 'string') {
-        this.modalProject.image = result;
-        // also ensure main image is included in photos for consistency
-        this.modalProject.photos = Array.isArray(this.modalProject.photos)
-          ? [result].concat(this.modalProject.photos)
-          : [result];
-      }
-    };
-    reader.onerror = () => {
-      console.warn('Failed to read main image file');
-    };
-    reader.readAsDataURL(file);
-    // clear the input to allow re-selection of the same file if needed
-    input.value = '';
+    // removed: upload handled via owner-only modal
   }
 
   setFilter(f: string) {
