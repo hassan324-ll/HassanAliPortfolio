@@ -38,6 +38,23 @@
   opacity: 0;
 }
 
+/* Make cards stretch to equal height inside the grid */
+.what-i-can-do .row.g-4 {
+  align-items: stretch;
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Let the card text take available space if needed */
+.service-card .service-text {
+  margin-top: 0.6rem;
+  flex: 1 0 auto;
+}
+
 /* Hover Effect */
 .service-card:hover {
   transform: translateY(-12px) scale(1.04) rotate3d(1, 1, 0, 6deg);
