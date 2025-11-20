@@ -7,7 +7,7 @@
           [class.active]="i === activeIndex"
         >
           <div class="container position-relative">
-            <div class="row">
+            <div class="row align-items-center">
               <div class="col-12 col-md-8">
                 <div class="py-5 py-md-6 d-flex align-items-center" style="min-height: 60vh">
                   <div class="text-start text-md-start text-dark">
@@ -26,6 +26,16 @@
                     </div>
                   </div>
                 </div>
+              </div>
+
+              <!-- Right-side image for slide 1 only -->
+              <div class="col-12 col-md-4 d-none d-md-flex justify-content-end align-items-center">
+                <img
+                  *ngIf="i === 0"
+                  src="/sliderimage2.webp"
+                  alt="Slider image"
+                  class="slider-image img-fluid rounded"
+                />
               </div>
             </div>
           </div>

@@ -1,1 +1,68 @@
-<p>footer works!</p>
+<footer class="site-footer py-5">
+  <div class="container">
+    <div class="row gy-4">
+      <!-- Brand -->
+      <div class="col-12 col-md-4">
+        <div class="footer-brand">
+          <h4 class="mb-2">Hassan Ali</h4>
+          <p class="text-muted small">
+            Frontend developer building scalable and responsive web apps.
+          </p>
+        </div>
+      </div>
+
+      <!-- Projects Links -->
+      <div class="col-6 col-md-2">
+        <h6 class="footer-heading">Projects</h6>
+        <ul class="footer-links list-unstyled">
+          <li><a routerLink="/projects">Featured</a></li>
+          <li><a href="#">Case Studies</a></li>
+          <li><a href="#">Open Source</a></li>
+        </ul>
+      </div>
+
+      <!-- Explore Links -->
+      <div class="col-6 col-md-2">
+        <h6 class="footer-heading">Explore</h6>
+        <ul class="footer-links list-unstyled">
+          <li><a routerLink="/about">About</a></li>
+          <li><a routerLink="/contact">Contact</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+
+      <!-- Subscribe & Social -->
+      <div class="col-12 col-md-4">
+        <h6 class="footer-heading">Stay In Touch</h6>
+        <p class="text-muted small">Subscribe for occasional updates and project launches.</p>
+        <form class="footer-subscribe" (submit)="$event.preventDefault()">
+          <div class="d-flex gap-2">
+            <input
+              class="form-control subscribe-input"
+              type="email"
+              placeholder="you@domain.com"
+              aria-label="Email"
+            />
+            <button class="btn btn-primary subscribe-btn" type="submit">Subscribe</button>
+          </div>
+        </form>
+        <div class="social-icons mt-3">
+          <a href="#" aria-label="GitHub" class="social"><i class="fa-brands fa-github"></i></a>
+          <a href="#" aria-label="LinkedIn" class="social"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="#" aria-label="Twitter" class="social"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div
+      class="footer-bottom mt-4 pt-3 border-top d-flex flex-column flex-md-row justify-content-between align-items-center"
+    >
+      <small class="text-muted">© {{ year }} Hassan Ali. All rights reserved.</small>
+      <div class="d-flex gap-3 align-items-center mt-2 mt-md-0">
+        <a href="#top" class="back-to-top small">Back to top</a>
+        <a href="/assets/HassanAliResume.pdf" class="small">Resume</a>
+      </div>
+    </div>
+  </div>
+</footer>

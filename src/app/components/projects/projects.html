@@ -1,1 +1,227 @@
-<p>projects works!</p>
+<!-- Photo Gallery Modal -->
+<div class="photo-modal-backdrop" *ngIf="showPhotoModal">
+  <div class="photo-modal-dialog">
+    <button class="photo-modal-close" (click)="closePhotoModal()">&times;</button>
+    <div class="photo-modal-content">
+      <div class="photo-modal-zoom-controls mb-2">
+        <button (click)="zoomOut()" class="photo-zoom-btn" [disabled]="zoomLevel <= 1">-</button>
+        <span class="photo-zoom-label">{{ zoomLevel * 100 | number : '1.0-0' }}%</span>
+        <button (click)="zoomIn()" class="photo-zoom-btn" [disabled]="zoomLevel >= 3">+</button>
+      </div>
+      <img
+        [src]="activePhotoUrl"
+        class="photo-modal-img"
+        [style.transform]="'scale(' + zoomLevel + ')'"
+        [style.cursor]="zoomLevel > 1 ? 'move' : 'default'"
+        (mousedown)="startDrag($event)"
+        (mouseup)="endDrag()"
+        (mouseleave)="endDrag()"
+        (mousemove)="onDrag($event)"
+      />
+      <div class="photo-modal-nav" *ngIf="activePhotoList && activePhotoList.length > 1">
+        <button (click)="prevPhoto()" class="photo-nav-btn">&#8592;</button>
+        <span class="photo-modal-index"
+          >{{ activePhotoIndex + 1 }} / {{ activePhotoList.length }}</span
+        >
+        <button (click)="nextPhoto()" class="photo-nav-btn">&#8594;</button>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="projects-section py-5">
+  <div *ngIf="isOwner" class="d-flex justify-content-center mb-4">
+    <button
+      class="btn btn-success manage-projects-btn px-4 py-2 fw-semibold d-flex align-items-center gap-2"
+      (click)="openModal()"
+    >
+      <!-- <span class="material-icons" style="font-size: 1.3em">settings</span> -->
+      Add Projects
+    </button>
+  </div>
+  <!-- Modal for owner only -->
+  <div class="modal-backdrop" *ngIf="showModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add Project</h5>
+          <button type="button" class="btn-close" (click)="closeModal()"></button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="addProject()" autocomplete="off">
+            <div class="row g-2">
+              <div class="col-12 col-md-6">
+                <label class="form-label">Title</label>
+                <input
+                  class="form-control"
+                  [(ngModel)]="modalProject.title"
+                  name="title"
+                  required
+                />
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label class="form-label">Category</label>
+                <select class="form-select" [(ngModel)]="modalProject.category" name="category">
+                  <option value="web">Web</option>
+                  <option value="ui">UI</option>
+                  <option value="api">API</option>
+                </select>
+              </div>
+
+              <div class="col-12">
+                <label class="form-label">Description</label>
+                <textarea
+                  class="form-control"
+                  [(ngModel)]="modalProject.description"
+                  name="description"
+                  rows="3"
+                ></textarea>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label class="form-label">Main Image</label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  class="form-control"
+                  (change)="onMainImageSelected($event)"
+                />
+                <div *ngIf="modalProject.image" class="mt-2">
+                  <img [src]="modalProject.image" class="main-image-preview" />
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label class="form-label">Live Link</label>
+                <input class="form-control" [(ngModel)]="modalProject.live" name="live" />
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label class="form-label">Code Link</label>
+                <input class="form-control" [(ngModel)]="modalProject.repo" name="repo" />
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label class="form-label">Technologies (comma separated)</label>
+                <input
+                  class="form-control"
+                  [(ngModel)]="modalProject.techString"
+                  name="techString"
+                />
+              </div>
+
+              <div class="col-12">
+                <label class="form-label">Photos (upload or paste URLs)</label>
+                <input
+                  class="form-control mb-2"
+                  [(ngModel)]="modalProject.photosString"
+                  name="photosString"
+                  placeholder="https://... , https://..."
+                />
+                <input
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  class="form-control"
+                  (change)="onFilesSelected($event)"
+                />
+
+                <div class="upload-previews d-flex flex-wrap gap-2 mt-2">
+                  <img *ngFor="let img of modalProject.photos" [src]="img" class="upload-thumb" />
+                </div>
+              </div>
+
+              <div class="col-12 text-end mt-2">
+                <button type="submit" class="btn btn-primary">Add Project</button>
+                <button type="button" class="btn btn-outline-secondary ms-2" (click)="closeModal()">
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row align-items-center mb-4">
+      <div class="col-12 col-md-6">
+        <h2 class="fw-bold mb-1">Featured Projects</h2>
+        <p class="text-muted mb-0">
+          Selected projects that highlight my skills in frontend development.
+        </p>
+      </div>
+      <div class="col-12 col-md-6 text-md-end mt-3 mt-md-0">
+        <div class="project-filters d-inline-flex gap-2">
+          <button
+            class="btn btn-sm filter-btn"
+            [class.active]="activeFilter === 'all'"
+            (click)="setFilter('all')"
+          >
+            All
+          </button>
+          <button
+            class="btn btn-sm filter-btn"
+            [class.active]="activeFilter === 'web'"
+            (click)="setFilter('web')"
+          >
+            Web
+          </button>
+          <button
+            class="btn btn-sm filter-btn"
+            [class.active]="activeFilter === 'ui'"
+            (click)="setFilter('ui')"
+          >
+            UI
+          </button>
+          <button
+            class="btn btn-sm filter-btn"
+            [class.active]="activeFilter === 'api'"
+            (click)="setFilter('api')"
+          >
+            API
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-12 col-sm-6 col-lg-4" *ngFor="let p of filteredProjects()">
+        <article class="project-card h-100 shadow-sm">
+          <div class="project-media">
+            <img [src]="p.image" [alt]="p.title" class="img-fluid" />
+            <div class="project-overlay">
+              <button
+                class="btn btn-sm btn-primary"
+                *ngIf="p.photos && p.photos.length"
+                (click)="$event.stopPropagation(); showPhotos(p)"
+              >
+                Photos
+              </button>
+              <a [href]="p.live" target="_blank" rel="noopener" class="btn btn-sm btn-light"
+                >Live</a
+              >
+              <a [href]="p.repo" target="_blank" rel="noopener" class="btn btn-sm btn-outline-light"
+                >Code</a
+              >
+            </div>
+          </div>
+
+          <div class="project-body p-3">
+            <h5 class="project-title mb-1">{{ p.title }}</h5>
+            <p class="text-muted small mb-2">{{ p.description }}</p>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge tech-badge" *ngFor="let t of p.tech">{{ t }}</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- <div class="row mt-4">
+      <div class="col-12 text-center">
+        <a routerLink="/projects" class="btn btn-lg btn-outline-primary">View All Projects</a>
+      </div>
+    </div> -->
+  </div>
+</section>

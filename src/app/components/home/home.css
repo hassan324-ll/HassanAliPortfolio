@@ -1,47 +1,193 @@
+/* -----------------------
+   Section Background
+------------------------ */
 .what-i-can-do {
-  background: linear-gradient(180deg, #f8fafc 0%, #e9edf1 100%);
+  background: linear-gradient(135deg, #ffffff, #f7f9fc);
+  padding: 80px 0;
 }
 
-.what-i-can-do h2 {
-  color: #0d6efd;
-  letter-spacing: 1px;
-}
-
-.what-i-can-do .card {
-  border-radius: 18px;
-  transition: box-shadow 0.18s;
+/* Section Title */
+.section-title {
+  font-size: 2.3rem;
   position: relative;
-  overflow: hidden;
-  min-height: 260px; /* increased card height for better spacing */
-}
-.what-i-can-do .card:hover {
-  box-shadow: 0 6px 24px rgba(13, 110, 253, 0.1);
+  animation: fadeUp 1.2s ease forwards;
+  opacity: 0;
 }
 
-.what-i-can-do .card::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
+/* Fade-in for paragraph */
+.fade-in {
+  animation: fadeUp 1s ease forwards;
+  opacity: 0;
+}
+
+/* -----------------------
+   Cards
+------------------------ */
+.service-card {
+  background: #ffffff;
+  padding: 35px 25px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+  animation: fadeScale 1s ease forwards;
+  opacity: 0;
+}
+
+/* Hover Effect */
+.service-card:hover {
+  transform: translateY(-12px) scale(1.04) rotate3d(1, 1, 0, 6deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(100, 100, 255, 0.4);
+}
+
+/* -----------------------
+   Icon Box
+------------------------ */
+.icon-box {
+  font-size: 45px;
+  color: #006eff;
+  margin-bottom: 15px;
+  animation: pulse 2.2s infinite ease-in-out;
+}
+
+/* Card Titles */
+.service-title {
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+/* Card Text */
+.service-text {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* -----------------------
+   Animations
+------------------------ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeScale {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.85;
+  }
+}
+
+/* -----------------------
+   Responsive Adjustments
+------------------------ */
+@media (max-width: 768px) {
+  .service-card {
+    padding: 25px 15px;
+  }
+  .icon-box {
+    font-size: 40px;
+  }
+}
+
+/* Skills Marquee Section */
+/* Section Title */
+.skills-heading {
+  font-size: 2.2rem;
+  color: #111 !important;
+}
+
+/* Light background for marquee */
+.marquee-wrapper {
   width: 100%;
-  height: 0%;
-  background: linear-gradient(180deg, #0d6efd 0%, #2a92ff 100%);
-  opacity: 0.12;
-  z-index: 1;
-  transition: height 0.75s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.35s;
-}
-.what-i-can-do .card:hover::before {
-  height: 100%;
-  opacity: 0.18;
-}
-.what-i-can-do .card-body {
-  position: relative;
-  z-index: 2;
-  padding-top: 2rem; /* slightly more vertical space */
-  padding-bottom: 2rem;
+  overflow: hidden;
+  padding: 18px 0;
+  border-radius: 20px;
+  background: #ffffff;
+  /* border: 1px solid #e5e5e5; */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-.what-i-can-do .display-5 {
-  font-size: 2.5rem;
-  line-height: 1;
+/* TRUE infinite scroll (no restart jump) */
+.marquee {
+  display: flex;
+  gap: 35px;
+  width: max-content;
+  white-space: nowrap;
+  animation: smoothScroll 20s linear infinite;
+}
+
+@keyframes smoothScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* White theme skill items */
+.skill-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+  background: #f6f6f6;
+  border-radius: 50px;
+  border: 1px solid #ddd;
+  transition: 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect */
+.skill-item:hover {
+  transform: scale(1.1);
+  background: #ffffff;
+  border-color: #bbb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Icons */
+.skill-item i {
+  font-size: 1.4rem;
+  color: #007bff;
+}
+
+/* Slower on mobile */
+@media (max-width: 768px) {
+  .marquee {
+    animation-duration: 30s;
+  }
 }
