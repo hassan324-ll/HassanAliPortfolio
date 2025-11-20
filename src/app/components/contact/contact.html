@@ -1,1 +1,77 @@
-<p>contact works!</p>
+<section class="contact-section py-5">
+  <div class="container">
+    <div class="row gx-4 gy-4 align-items-start">
+      <!-- Left Column: Contact Info -->
+      <div class="col-12 col-lg-5">
+        <h3 class="mb-3 section-title">Get In Touch</h3>
+        <p class="text-muted mb-4 fade-in">
+          Have a project or want to say hi? Send a message and I'll reply as soon as I can.
+        </p>
+
+        <!-- Contact Info Card -->
+        <div class="contact-card p-4 mb-4">
+          <h6>Contact Info</h6>
+          <p class="mb-1">
+            <strong>Email:</strong> <a href="mailto:hello@example.com">hello@example.com</a>
+          </p>
+          <p class="mb-1"><strong>Phone:</strong> <a href="tel:+1234567890">+1 234 567 890</a></p>
+          <p class="mb-0"><strong>Location:</strong> City, Country</p>
+        </div>
+
+        <!-- Social Follow Card -->
+        <div class="contact-card p-4 mb-4">
+          <h6>Follow</h6>
+          <div class="d-flex gap-2 mt-3">
+            <a class="btn btn-social linkedin" href="#" target="_blank">LinkedIn</a>
+            <a class="btn btn-social github" href="#" target="_blank">GitHub</a>
+            <a class="btn btn-social twitter" href="#" target="_blank">Twitter</a>
+          </div>
+        </div>
+
+        <!-- Map Card -->
+        <div class="contact-card p-4">
+          <h6>Location</h6>
+          <div class="map-placeholder">Map placeholder</div>
+        </div>
+      </div>
+
+      <!-- Right Column: Contact Form -->
+      <div class="col-12 col-lg-7">
+        <div class="contact-form-card p-5 shadow-sm">
+          <h4 class="mb-4">Send a Message</h4>
+          <form (ngSubmit)="submit()" autocomplete="off" class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Name</label>
+              <input class="form-control" [(ngModel)]="name" name="name" required />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" [(ngModel)]="email" name="email" required />
+            </div>
+            <div class="col-12">
+              <label class="form-label">Subject</label>
+              <input class="form-control" [(ngModel)]="subject" name="subject" />
+            </div>
+            <div class="col-12">
+              <label class="form-label">Message</label>
+              <textarea
+                class="form-control"
+                rows="5"
+                [(ngModel)]="message"
+                name="message"
+                required
+              ></textarea>
+            </div>
+
+            <div class="col-12 d-flex align-items-center gap-3">
+              <button class="btn btn-primary btn-send" type="submit" [disabled]="sending">
+                {{ sending ? 'Sending...' : 'Send Message' }}
+              </button>
+              <div class="text-success small" *ngIf="success">{{ success }}</div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
