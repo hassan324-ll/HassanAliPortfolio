@@ -122,8 +122,16 @@
     height: auto;
   }
 
-  .feature-slide-content {
-    text-align: center;
+  /* Center slide content on small screens */
+  .feature-slide {
+    justify-content: center; /* center horizontally */
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  /* Target the text container used in the template */
+  .feature-slide .text-start {
+    text-align: center !important;
     padding-left: 5%;
     padding-right: 5%;
     max-width: 100%;

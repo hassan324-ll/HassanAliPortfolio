@@ -156,4 +156,36 @@ nav.navbar {
     width: 100%;
     text-align: center;
   }
+  /* Make the mobile collapsed menu overlay content instead of pushing it down */
+  .navbar .container-fluid {
+    position: relative; /* create positioning context for the collapse */
+  }
+
+  /* Ensure the navbar itself allows the overlay to escape and not clip */
+  nav.navbar {
+    overflow: visible;
+  }
+
+  .navbar-collapse {
+    position: absolute !important;
+    top: calc(100% + 8px) !important;
+    left: 12px !important; /* align with container padding */
+    right: 12px !important; /* leave small gutter */
+    max-width: calc(100% - 24px);
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(2, 6, 23, 0.12);
+    padding: 0.75rem 1rem;
+    z-index: 2050; /* above most page content */
+    transform-origin: top center;
+  }
+
+  /* Keep collapse transitions but ensure it doesn't change layout flow */
+  .navbar-collapse.collapse {
+    display: none; /* default hidden */
+  }
+
+  .navbar-collapse.collapse.show {
+    display: block; /* shown as overlay */
+  }
 }
