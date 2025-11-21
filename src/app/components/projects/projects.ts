@@ -24,6 +24,7 @@ export class Projects implements OnInit {
   activePhotoUrl = '';
   activeFilter: string = 'all';
 
+  // this data is for projects display
   projects = [
     {
       title: 'Restarant Web App',
@@ -36,23 +37,45 @@ export class Projects implements OnInit {
       photos: ['/products.png', '/menu.png', '/Staff.png'],
     },
     {
-      title: 'Design System UI Kit',
-      description: 'Reusable UI components, tokens, and documentation for consistent interfaces.',
-      image: '/sliderimage.avif',
-      tech: ['HTML', 'CSS', 'SCSS'],
+      title: 'Drive Align Web App',
+      description:
+        'Web app designed for automotive service centers to manage wheel alignments, dent repairs, and customer data.',
+      image: '/dashboard.png',
+      tech: ['HTML', 'CSS', 'Angular', 'TypeScript'],
       live: '#',
       repo: '#',
-      category: 'ui',
-      photos: ['/sliderimage.avif'],
+      category: 'web',
+      photos: [
+        '/login.png',
+        '/active jobs.png',
+        '/canceled.png',
+        '/userpage.png',
+        '/bookjob.png',
+        '/jobstatus.png',
+        '/compliance.png',
+        '/feedback.png',
+        '/profile.png',
+        '/support.png',
+      ],
     },
     {
-      title: 'API Integration Demo',
+      title: 'Crypto Wesbite',
       description: 'Example app integrating third-party REST APIs with caching and error handling.',
-      image: '/sliderimage.avif',
-      tech: ['Angular', 'RxJS', 'REST'],
+      image: '/cryptosite.png',
+      tech: ['Angular', 'Css', 'TypeScript'],
+      live: 'https://crypto-site-angular.vercel.app/',
+      repo: 'https://github.com/hassan324-ll/crypto-site-angular',
+      category: 'web',
+      photos: null,
+    },
+    {
+      title: 'Portfolio Wesbite',
+      description: 'Modern portfolio website with clean code and design also responsive.',
+      image: '/portfolio.png',
+      tech: ['Angular', 'Bootstrap', 'TypeScript', 'HTML'],
       live: '#',
       repo: '#',
-      category: 'api',
+      category: 'web',
       photos: null,
     },
   ];
