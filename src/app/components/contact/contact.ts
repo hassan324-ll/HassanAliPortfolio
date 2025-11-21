@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-contact',
@@ -34,7 +35,9 @@ export class Contact implements OnInit {
       this.success = 'Please fill name, email and message.';
       return;
     }
+
     this.sending = true;
+
     const entry = {
       name: this.name,
       email: this.email,
@@ -42,7 +45,8 @@ export class Contact implements OnInit {
       message: this.message,
       date: new Date().toISOString(),
     };
-    // Persist locally (no backend in this demo)
+
+    // Save message locally
     this.messages.push(entry);
     try {
       localStorage.setItem(this.storageKey, JSON.stringify(this.messages));
@@ -50,12 +54,33 @@ export class Contact implements OnInit {
       console.warn('Failed to save message', e);
     }
 
-    // simple success flow
-    setTimeout(() => {
-      this.sending = false;
-      this.success = 'Message sent — I will get back to you soon.';
-      this.name = this.email = this.subject = this.message = '';
-      setTimeout(() => (this.success = ''), 4200);
-    }, 600);
+    // ---- EmailJS Email Sending ----
+    const formData = {
+      name: this.name,
+      email: this.email,
+      subject: this.subject,
+      message: this.message,
+    };
+
+    emailjs
+      .send('service_960y21i', 'template_2h8d93g', formData, 'bOcUDi3-jiZ0Nb52F')
+      .then(() => {
+        this.sending = false;
+        this.success = 'Message sent — I will get back to you soon.';
+
+        // Clear form
+        this.name = '';
+        this.email = '';
+        this.subject = '';
+        this.message = '';
+
+        // Hide success after a few seconds
+        setTimeout(() => (this.success = ''), 4200);
+      })
+      .catch((error) => {
+        console.error('EmailJS Error:', error);
+        this.sending = false;
+        alert('Something went wrong while sending email.');
+      });
   }
 }
