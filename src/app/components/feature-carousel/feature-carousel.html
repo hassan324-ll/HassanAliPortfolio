@@ -15,14 +15,14 @@
                     <h4 class="h6 text-muted">{{ feature.subtitle }}</h4>
                     <p class="lead text-dark">{{ feature.bio }}</p>
                     <div class="d-flex flex-wrap gap-2 mt-3">
-                      <button
+                      <!-- <button
                         *ngFor="let btn of feature.buttons; let idx = index"
                         class="btn btn-lg"
                         [ngClass]="{ 'btn-primary': idx === 0, 'btn-outline-primary': idx !== 0 }"
                         (click)="onButtonClick(btn.action)"
                       >
                         {{ btn.text }}
-                      </button>
+                      </button> -->
                     </div>
                   </div>
                 </div>

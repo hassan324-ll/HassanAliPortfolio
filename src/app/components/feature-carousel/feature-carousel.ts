@@ -24,10 +24,10 @@ export class FeatureCarousel implements OnInit, OnDestroy {
       title: "Hi, I'm Hassan Ali",
       subtitle: 'Junior Angular Developer',
       bio: 'I build modern, scalable and responsive web applications.',
-      buttons: [
-        { text: 'View Projects', action: 'projects' },
-        { text: 'Contact Me', action: 'contact' },
-      ],
+      // buttons: [
+      //   { text: 'View Projects', action: 'projects' },
+      //   { text: 'Contact Me', action: 'contact' },
+      // ],
       image: './bg.jpg',
     },
     {
@@ -35,10 +35,10 @@ export class FeatureCarousel implements OnInit, OnDestroy {
       title: 'What I Do',
       subtitle: 'My Expertise',
       bio: 'I create responsive, fast and user-friendly web applications using modern frontend technologies.',
-      buttons: [
-        { text: 'Learn More', action: 'learn' },
-        { text: 'Get Started', action: 'start' },
-      ],
+      // buttons: [
+      //   { text: 'Learn More', action: 'learn' },
+      //   { text: 'Get Started', action: 'start' },
+      // ],
       image: './bg.jpg',
     },
     {
@@ -46,10 +46,10 @@ export class FeatureCarousel implements OnInit, OnDestroy {
       title: 'Work Philosophy',
       subtitle: 'How I Work',
       bio: 'I follow a simple and effective workflow — plan, design, build, test, and refine.',
-      buttons: [
-        { text: 'Enable Alerts', action: 'enable' },
-        { text: 'Configure', action: 'config' },
-      ],
+      // buttons: [
+      //   { text: 'Enable Alerts', action: 'enable' },
+      //   { text: 'Configure', action: 'config' },
+      // ],
       image: './bg.jpg',
     },
   ];
