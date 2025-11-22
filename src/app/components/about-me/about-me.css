@@ -168,4 +168,24 @@
     width: 120px;
     height: 120px;
   }
+
+  .about-section .row,
+  .about-section .col-12,
+  .about-section .col-md-4,
+  .about-section .col-md-8 {
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .about-section .profile-card,
+  .about-section .profile-img,
+  .about-section h2,
+  .about-section p,
+  .about-section .skills-list,
+  .about-section .about-stats {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center !important;
+  }
 }
