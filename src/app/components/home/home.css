@@ -20,6 +20,14 @@
   opacity: 0;
 }
 
+/* entrance timing tweaks */
+.section-title {
+  animation-delay: 0.12s;
+}
+.fade-in {
+  animation-delay: 0.28s;
+}
+
 /* -----------------------
    Cards
 ------------------------ */
@@ -34,8 +42,48 @@
   transform-style: preserve-3d;
   cursor: pointer;
   position: relative;
-  animation: fadeScale 1s ease forwards;
+  animation: fadeScale 0.7s cubic-bezier(0.2, 0.9, 0.25, 1) forwards;
   opacity: 0;
+}
+
+/* Staggered delays for cards (up to 6 items) */
+.what-i-can-do .row.g-4 > div:nth-child(1) .service-card {
+  animation-delay: 0.24s;
+}
+.what-i-can-do .row.g-4 > div:nth-child(2) .service-card {
+  animation-delay: 0.36s;
+}
+.what-i-can-do .row.g-4 > div:nth-child(3) .service-card {
+  animation-delay: 0.48s;
+}
+.what-i-can-do .row.g-4 > div:nth-child(4) .service-card {
+  animation-delay: 0.6s;
+}
+.what-i-can-do .row.g-4 > div:nth-child(5) .service-card {
+  animation-delay: 0.72s;
+}
+.what-i-can-do .row.g-4 > div:nth-child(6) .service-card {
+  animation-delay: 0.84s;
+}
+
+/* subtle floating accent when card is idle */
+.service-card::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 90%;
+  height: 90%;
+  transform: translate(-50%, -50%) scale(0.98);
+  background: linear-gradient(180deg, rgba(13, 110, 253, 0.02), rgba(42, 146, 255, 0.01));
+  border-radius: 18px;
+  pointer-events: none;
+  z-index: -1;
+  transition: transform 0.6s ease;
+}
+
+.service-card:hover::after {
+  transform: translate(-50%, -50%) scale(1.02);
 }
 
 /* Make cards stretch to equal height inside the grid */
@@ -101,6 +149,18 @@
   }
 }
 
+@keyframes floatSlow {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 @keyframes fadeScale {
   from {
     opacity: 0;
@@ -121,6 +181,42 @@
   50% {
     transform: scale(1.12);
     opacity: 0.85;
+  }
+}
+
+/* skills and divider entrance */
+.skills-heading {
+  animation: fadeUp 0.9s ease forwards;
+  opacity: 0;
+  animation-delay: 0.9s;
+}
+.skills-marquee .marquee-wrapper {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeUp 0.9s ease forwards;
+  animation-delay: 1.05s;
+}
+.divider-line {
+  display: inline-block;
+  width: 56px;
+  height: 4px;
+  background: linear-gradient(90deg, #0d6efd, #2a92ff);
+  border-radius: 2px;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: expandLine 0.6s cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+  animation-delay: 0.8s;
+}
+
+@keyframes expandLine {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
   }
 }
 

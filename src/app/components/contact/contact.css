@@ -11,13 +11,42 @@
   font-weight: 600;
   margin-bottom: 15px;
   position: relative;
-  animation: fadeUp 1s ease forwards;
+}
+
+/* Base Animation Classes */
+.fade-up,
+.slide-left,
+.slide-right {
   opacity: 0;
 }
 
-.fade-in {
-  animation: fadeUp 1s ease forwards;
-  opacity: 0;
+/* Fade Up Animation */
+.fade-up {
+  animation: fadeUp 0.9s ease forwards;
+}
+
+/* Slide Left Animation */
+.slide-left {
+  animation: slideLeft 0.9s ease forwards;
+}
+
+/* Slide Right Animation */
+.slide-right {
+  animation: slideRight 0.9s ease forwards;
+}
+
+/* Animation Delays */
+.delay-1 {
+  animation-delay: 0.15s;
+}
+.delay-2 {
+  animation-delay: 0.3s;
+}
+.delay-3 {
+  animation-delay: 0.45s;
+}
+.delay-4 {
+  animation-delay: 0.6s;
 }
 
 /* Contact Card */
@@ -31,18 +60,6 @@
 .contact-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 20px 35px rgba(0, 0, 0, 0.12);
-}
-
-/* Map Placeholder */
-.map-placeholder {
-  height: 150px;
-  background: #e9ecef;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #6c757d;
-  font-size: 0.9rem;
 }
 
 /* Social Buttons */
@@ -95,7 +112,7 @@
   box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
 }
 
-/* Input and Textarea */
+/* Inputs */
 .contact-form-card input,
 .contact-form-card textarea {
   border-radius: 10px;
@@ -110,7 +127,7 @@
   outline: none;
 }
 
-/* Animations */
+/* Keyframes */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -122,16 +139,29 @@
   }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .contact-card,
-  .contact-form-card {
-    padding: 20px;
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-25px);
   }
-  .map-placeholder {
-    height: 120px;
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Spinner */
 .spinner {
   width: 20px;
   height: 20px;
@@ -139,14 +169,21 @@
   border-top: 3px solid #007bff;
   border-radius: 50%;
   animation: spin 1s linear infinite;
-  display: inline-block;
 }
 
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
+  from {
+    transform: rotate(0);
   }
-  100% {
+  to {
     transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-card,
+  .contact-form-card {
+    padding: 20px;
   }
 }

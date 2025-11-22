@@ -1,8 +1,0 @@
-{
-  "/gs-contact": {
-    "target": "https://script.google.com/macros/s/AKfycbxwpHLh-JGueb4GaeM59S7t236Pt3DOMDVpxYPXiOixeirckqlsLb8O38b2NpTSG6A/exec",
-    "secure": true,
-    "changeOrigin": true,
-    "logLevel": "debug"
-  }
-}
