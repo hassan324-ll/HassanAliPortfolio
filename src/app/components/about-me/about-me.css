@@ -169,6 +169,13 @@
     height: 120px;
   }
 
+  .about-section,
+  .about-section * {
+    text-align: center !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
   .about-section .row,
   .about-section .col-12,
   .about-section .col-md-4,
