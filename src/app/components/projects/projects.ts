@@ -27,7 +27,7 @@ export class Projects implements OnInit {
   // this data is for projects display
   projects = [
     {
-      title: 'Restarant Web App',
+      title: 'Restaurant Web App',
       description: 'A modern restaurant web application with online ordering and real analytics.',
       image: '/Main image.png',
       tech: ['Angular', 'TypeScript', 'Bootstrap'],
