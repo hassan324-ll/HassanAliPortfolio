@@ -31,13 +31,6 @@ export class Testimonials {
         'Delivered a robust frontend architecture with great performance. Very diligent and detail-oriented.',
       avatar: '/profile3.jpg',
     },
-    {
-      name: 'Michael Park',
-      role: 'CTO',
-      quote:
-        'Delivered a robust frontend architecture with great performance. Very diligent and detail-oriented.',
-      avatar: '/profile3.jpg',
-    },
   ];
 
   activeIndex = 0;
