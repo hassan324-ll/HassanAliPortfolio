@@ -302,3 +302,107 @@
     height: 160px;
   }
 }
+/* ======================================================== */
+/*                    ADDED ANIMATIONS ONLY                 */
+/* ======================================================== */
+
+/* Fade-in background overlay */
+.photo-modal-backdrop {
+  animation: fadeInModal 0.35s ease forwards;
+}
+
+/* Modal pop animation */
+.photo-modal-dialog {
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  animation: modalPop 0.35s ease forwards;
+}
+
+/* Smooth zoom animation */
+.photo-modal-img {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Buttons press feedback */
+.photo-zoom-btn:active {
+  transform: scale(0.85);
+}
+
+/* Navigation hover pop */
+.photo-nav-btn {
+  transition: transform 0.25s ease, background 0.2s ease;
+}
+.photo-nav-btn:hover {
+  transform: scale(1.12);
+}
+
+/* Project card fade-up animation */
+.project-card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: projectFadeUp 0.55s ease forwards;
+}
+
+/* Stagger effect on cards */
+.project-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.project-card:nth-child(2) {
+  animation-delay: 0.12s;
+}
+.project-card:nth-child(3) {
+  animation-delay: 0.19s;
+}
+.project-card:nth-child(4) {
+  animation-delay: 0.26s;
+}
+.project-card:nth-child(5) {
+  animation-delay: 0.33s;
+}
+.project-card:nth-child(6) {
+  animation-delay: 0.4s;
+}
+
+/* Filter buttons hover + active micro-animations */
+.filter-btn {
+  transition: all 0.25s ease;
+}
+.filter-btn:hover {
+  transform: translateY(-2px);
+}
+.filter-btn.active {
+  transform: scale(1.05);
+}
+
+/* ------------------- KEYFRAMES ------------------- */
+
+@keyframes fadeInModal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes projectFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

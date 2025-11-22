@@ -20,14 +20,15 @@
       />
       <div class="photo-modal-nav" *ngIf="activePhotoList && activePhotoList.length > 1">
         <button (click)="prevPhoto()" class="photo-nav-btn">&#8592;</button>
-        <span class="photo-modal-index"
-          >{{ activePhotoIndex + 1 }} / {{ activePhotoList.length }}</span
-        >
+        <span class="photo-modal-index">
+          {{ activePhotoIndex + 1 }} / {{ activePhotoList.length }}
+        </span>
         <button (click)="nextPhoto()" class="photo-nav-btn">&#8594;</button>
       </div>
     </div>
   </div>
 </div>
+
 <section class="projects-section py-5">
   <div class="container">
     <div class="row align-items-center mb-4">
@@ -103,11 +104,5 @@
         </article>
       </div>
     </div>
-
-    <!-- <div class="row mt-4">
-      <div class="col-12 text-center">
-        <a routerLink="/projects" class="btn btn-lg btn-outline-primary">View All Projects</a>
-      </div>
-    </div> -->
   </div>
 </section>
