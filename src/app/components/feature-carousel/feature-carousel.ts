@@ -142,7 +142,7 @@ export class FeatureCarousel implements OnInit, OnDestroy {
           if (this.owl?.next) {
             this.owl.next();
           }
-        }, 200);
+        }, 200);  
       }
     }, interval);
   }

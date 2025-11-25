@@ -186,4 +186,57 @@
   .contact-form-card {
     padding: 20px;
   }
+  /* Center contact section content on mobile */
+  .contact-section,
+  .contact-section .container,
+  .contact-section .row,
+  .contact-card,
+  .contact-form-card,
+  .contact-section * {
+    text-align: center !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .contact-card .btn-social {
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+  }
+
+  .contact-form-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  /* Make the form slightly wider on mobile while keeping it centered and responsive */
+  .contact-form-card {
+    width: 100%;
+    max-width: 95vw; /* allow larger card close to viewport width */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .contact-form-card input,
+  .contact-form-card textarea,
+  .contact-form-card select {
+    width: 100% !important; /* occupy full card width within padding */
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  /* Prevent any horizontal overflow from children */
+  .contact-section {
+    overflow-x: hidden;
+  }
+
+  .btn-send {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
