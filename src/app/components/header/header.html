@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2 sticky-top">
+<nav class="navbar navbar-expand-lg modern-nav sticky-top">
   <div class="container-fluid">
     <a class="navbar-brand d-flex align-items-center gap-3 logo-link" routerLink="/">
-      <span class="logo-mark" aria-hidden="true">
+      <span class="logo-mark">
         <span class="mark-initials">HA</span>
       </span>
       <span class="logo-text">
@@ -9,61 +9,40 @@
         <span class="brand-last">Ali</span>
       </span>
     </a>
+
     <button
       class="navbar-toggler"
       type="button"
       data-bs-toggle="collapse"
       data-bs-target="#mainNavbar"
-      aria-controls="mainNavbar"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="mainNavbar">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-4">
         <li class="nav-item">
           <a
-            class="nav-link active d-flex align-items-center gap-1"
+            class="nav-link nav-modern"
             routerLink="/"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
-            data-bs-toggle="collapse"
-            data-bs-target="#mainNavbar"
           >
             Home
           </a>
         </li>
         <li class="nav-item">
-          <a
-            class="nav-link d-flex align-items-center gap-1"
-            routerLink="/about-me"
-            routerLinkActive="active"
-            data-bs-toggle="collapse"
-            data-bs-target="#mainNavbar"
-          >
+          <a class="nav-link nav-modern" routerLink="/about-me" routerLinkActive="active">
             About Me
           </a>
         </li>
         <li class="nav-item">
-          <a
-            class="nav-link d-flex align-items-center gap-1"
-            routerLink="/projects"
-            routerLinkActive="active"
-            data-bs-toggle="collapse"
-            data-bs-target="#mainNavbar"
-          >
+          <a class="nav-link nav-modern" routerLink="/projects" routerLinkActive="active">
             Projects
           </a>
         </li>
         <li class="nav-item">
-          <a
-            class="nav-link d-flex align-items-center gap-1"
-            routerLink="/contact"
-            routerLinkActive="active"
-            data-bs-toggle="collapse"
-            data-bs-target="#mainNavbar"
-          >
+          <a class="nav-link nav-modern" routerLink="/contact" routerLinkActive="active">
             Contact
           </a>
         </li>

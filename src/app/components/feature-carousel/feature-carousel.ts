@@ -18,6 +18,7 @@ export class FeatureCarousel implements OnInit, OnDestroy {
   isTransitioning = false;
   realProgressIndex = 0;
 
+  // sliders data
   features = [
     {
       id: '1',
@@ -28,7 +29,7 @@ export class FeatureCarousel implements OnInit, OnDestroy {
       //   { text: 'View Projects', action: 'projects' },
       //   { text: 'Contact Me', action: 'contact' },
       // ],
-      image: './bg.jpg',
+      // image: './bg.jpg',
     },
     {
       id: '2',
@@ -39,7 +40,7 @@ export class FeatureCarousel implements OnInit, OnDestroy {
       //   { text: 'Learn More', action: 'learn' },
       //   { text: 'Get Started', action: 'start' },
       // ],
-      image: './bg.jpg',
+      // image: './bg.jpg',
     },
     {
       id: '3',
@@ -50,7 +51,7 @@ export class FeatureCarousel implements OnInit, OnDestroy {
       //   { text: 'Enable Alerts', action: 'enable' },
       //   { text: 'Configure', action: 'config' },
       // ],
-      image: './bg.jpg',
+      // image: './bg.jpg',
     },
   ];
 
@@ -142,7 +143,7 @@ export class FeatureCarousel implements OnInit, OnDestroy {
           if (this.owl?.next) {
             this.owl.next();
           }
-        }, 200);  
+        }, 200);
       }
     }, interval);
   }

@@ -9,4 +9,12 @@ import { RouterModule } from '@angular/router';
   templateUrl: './header.html',
   styleUrls: ['./header.css'],
 })
-export class Header {}
+export class Header {
+  ngOnInit() {
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.modern-nav');
+      if (window.scrollY > 20) nav?.classList.add('scrolled');
+      else nav?.classList.remove('scrolled');
+    });
+  }
+}

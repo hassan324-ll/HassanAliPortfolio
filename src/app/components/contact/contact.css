@@ -1,41 +1,54 @@
-/* Section Background */
+/* =========================================================
+   CONTACT SECTION — Minimal Premium White Theme
+   ========================================================= */
+
+/* Background */
 .contact-section {
-  background: #f8f9fa;
-  padding: 80px 0;
+  background: #f5f7fa; /* softer than pure #f8f9fa */
+  padding: 100px 0;
   font-family: 'Poppins', sans-serif;
 }
 
-/* Section Title Animation */
+/* Section Title */
 .section-title {
-  font-size: 2.2rem;
-  font-weight: 600;
-  margin-bottom: 15px;
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #1a1a1a;
   position: relative;
+  padding-bottom: 8px;
 }
 
-/* Base Animation Classes */
+.section-title::after {
+  content: '';
+  width: 60px;
+  height: 3px;
+  background: #007bff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-radius: 50px;
+}
+
+/* Base animation classes */
 .fade-up,
 .slide-left,
 .slide-right {
   opacity: 0;
 }
 
-/* Fade Up Animation */
 .fade-up {
   animation: fadeUp 0.9s ease forwards;
 }
 
-/* Slide Left Animation */
 .slide-left {
   animation: slideLeft 0.9s ease forwards;
 }
 
-/* Slide Right Animation */
 .slide-right {
   animation: slideRight 0.9s ease forwards;
 }
 
-/* Animation Delays */
+/* Delay classes */
 .delay-1 {
   animation-delay: 0.15s;
 }
@@ -49,89 +62,109 @@
   animation-delay: 0.6s;
 }
 
-/* Contact Card */
-.contact-card {
+/* ------------------------------
+   Premium White Contact Cards
+------------------------------ */
+.contact-card,
+.contact-form-card {
   background: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 18px;
+  padding: 28px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
 
-.contact-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.12);
+.contact-card:hover,
+.contact-form-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
 }
 
-/* Social Buttons */
+/* ------------------------------
+   Social Buttons
+------------------------------ */
 .btn-social {
-  border-radius: 50px;
-  padding: 8px 20px;
-  font-size: 0.875rem;
+  border-radius: 40px;
+  padding: 8px 22px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.4px;
   transition: all 0.3s ease;
 }
 
 .btn-social:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 123, 255, 0.25);
 }
 
 .btn-social.linkedin {
   background: #0077b5;
   color: #fff;
 }
+
 .btn-social.github {
-  background: #333;
+  background: #24292f;
   color: #fff;
 }
+
 .btn-social.twitter {
   background: #1da1f2;
   color: #fff;
 }
 
-/* Contact Form Card */
-.contact-form-card {
-  background: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* ------------------------------
+   Form Elements — Minimal Premium
+------------------------------ */
+.contact-form-card input,
+.contact-form-card textarea {
+  border-radius: 12px;
+  border: 1px solid #d7d7d7;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  transition: 0.2s ease;
+  background: #fafafa;
 }
 
-.contact-form-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.12);
+.contact-form-card input:focus,
+.contact-form-card textarea:focus {
+  border-color: #007bff;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.15);
+  outline: none;
 }
 
 /* Send Button */
 .btn-send {
   border-radius: 50px;
-  padding: 10px 25px;
-  transition: all 0.3s ease;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: 0.3s ease;
 }
 
 .btn-send:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
+  transform: scale(1.07);
+  box-shadow: 0 10px 22px rgba(0, 123, 255, 0.25);
 }
 
-/* Inputs */
-.contact-form-card input,
-.contact-form-card textarea {
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  transition: all 0.3s ease;
+/* ------------------------------
+   Map Container
+------------------------------ */
+.map-container {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
 }
 
-.contact-form-card input:focus,
-.contact-form-card textarea:focus {
-  border-color: #006eff;
-  box-shadow: 0 0 8px rgba(0, 110, 255, 0.2);
-  outline: none;
-}
-
-/* Keyframes */
+/* ------------------------------
+   Keyframes
+------------------------------ */
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -142,7 +175,7 @@
 @keyframes slideLeft {
   from {
     opacity: 0;
-    transform: translateX(-25px);
+    transform: translateX(-30px);
   }
   to {
     opacity: 1;
@@ -153,7 +186,7 @@
 @keyframes slideRight {
   from {
     opacity: 0;
-    transform: translateX(25px);
+    transform: translateX(30px);
   }
   to {
     opacity: 1;
@@ -165,7 +198,7 @@
 .spinner {
   width: 20px;
   height: 20px;
-  border: 3px solid #f3f3f3;
+  border: 3px solid #eaeaea;
   border-top: 3px solid #007bff;
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -180,63 +213,21 @@
   }
 }
 
-/* Responsive */
+/* ------------------------------
+   Responsive
+------------------------------ */
 @media (max-width: 768px) {
-  .contact-card,
-  .contact-form-card {
-    padding: 20px;
-  }
-  /* Center contact section content on mobile */
-  .contact-section,
-  .contact-section .container,
-  .contact-section .row,
-  .contact-card,
-  .contact-form-card,
   .contact-section * {
     text-align: center !important;
-    justify-content: center !important;
-    align-items: center !important;
   }
 
-  .contact-card .btn-social {
-    margin-left: auto;
-    margin-right: auto;
-    display: inline-block;
-  }
-
-  .contact-form-card form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-  }
-
-  /* Make the form slightly wider on mobile while keeping it centered and responsive */
-  .contact-form-card {
-    width: 100%;
-    max-width: 95vw; /* allow larger card close to viewport width */
-    margin-left: auto;
-    margin-right: auto;
+  .contact-form-card,
+  .contact-card {
     padding: 20px;
-    box-sizing: border-box;
-    overflow: hidden;
   }
 
   .contact-form-card input,
-  .contact-form-card textarea,
-  .contact-form-card select {
-    width: 100% !important; /* occupy full card width within padding */
-    max-width: 100% !important;
-    box-sizing: border-box;
-  }
-
-  /* Prevent any horizontal overflow from children */
-  .contact-section {
-    overflow-x: hidden;
-  }
-
-  .btn-send {
-    margin-left: auto;
-    margin-right: auto;
+  .contact-form-card textarea {
+    width: 100%;
   }
 }

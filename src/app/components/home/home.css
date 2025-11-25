@@ -31,83 +31,99 @@
 /* -----------------------
    Cards
 ------------------------ */
+/* SECTION TITLE */
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* SERVICE CARD STYLING */
 .service-card {
-  background: #ffffff;
-  padding: 35px 25px;
-  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 32px 25px;
   text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
-  transform-style: preserve-3d;
-  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  transition: all 0.35s ease;
+  border: 1px solid rgba(0, 0, 0, 0.04);
   position: relative;
-  animation: fadeScale 0.7s cubic-bezier(0.2, 0.9, 0.25, 1) forwards;
+  overflow: hidden;
+}
+
+/* GRADIENT BORDER EFFECT */
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #3b82f6, #9333ea);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+/* CARD HOVER EFFECT */
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* ICON BOX */
+.icon-box {
+  font-size: 38px;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: rgba(37, 99, 235, 0.08);
+  color: #2563eb;
+  transition: all 0.3s ease;
+}
+
+/* ICON GLOW ON HOVER */
+.service-card:hover .icon-box {
+  background: rgba(37, 99, 235, 0.12);
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
+}
+
+/* TITLES AND TEXT */
+.service-title {
+  font-size: 1.15rem;
+  color: #0f172a;
+}
+
+.service-text {
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+/* FADE IN ANIMATION */
+.fade-in {
+  animation: fadeSlideUp 0.8s ease forwards;
   opacity: 0;
 }
 
-/* Staggered delays for cards (up to 6 items) */
-.what-i-can-do .row.g-4 > div:nth-child(1) .service-card {
-  animation-delay: 0.24s;
-}
-.what-i-can-do .row.g-4 > div:nth-child(2) .service-card {
-  animation-delay: 0.36s;
-}
-.what-i-can-do .row.g-4 > div:nth-child(3) .service-card {
-  animation-delay: 0.48s;
-}
-.what-i-can-do .row.g-4 > div:nth-child(4) .service-card {
-  animation-delay: 0.6s;
-}
-.what-i-can-do .row.g-4 > div:nth-child(5) .service-card {
-  animation-delay: 0.72s;
-}
-.what-i-can-do .row.g-4 > div:nth-child(6) .service-card {
-  animation-delay: 0.84s;
-}
-
-/* subtle floating accent when card is idle */
-.service-card::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 90%;
-  height: 90%;
-  transform: translate(-50%, -50%) scale(0.98);
-  background: linear-gradient(180deg, rgba(13, 110, 253, 0.02), rgba(42, 146, 255, 0.01));
-  border-radius: 18px;
-  pointer-events: none;
-  z-index: -1;
-  transition: transform 0.6s ease;
-}
-
-.service-card:hover::after {
-  transform: translate(-50%, -50%) scale(1.02);
-}
-
-/* Make cards stretch to equal height inside the grid */
-.what-i-can-do .row.g-4 {
-  align-items: stretch;
-}
-
-.service-card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-/* Let the card text take available space if needed */
-.service-card .service-text {
-  margin-top: 0.6rem;
-  flex: 1 0 auto;
-}
-
-/* Hover Effect */
-.service-card:hover {
-  transform: translateY(-12px) scale(1.04) rotate3d(1, 1, 0, 6deg);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  border: 1px solid rgba(100, 100, 255, 0.4);
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* -----------------------
