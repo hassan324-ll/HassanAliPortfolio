@@ -73,7 +73,7 @@ export class Projects implements OnInit {
       description: 'Modern portfolio website with clean code and design also responsive.',
       image: '/portfolio.png',
       tech: ['Angular', 'Bootstrap', 'TypeScript', 'HTML'],
-      live: '#',
+      live: 'https://hassan-ali-portfolio-phi.vercel.app/',
       repo: 'https://github.com/hassan324-ll/HassanAliPortfolio',
       category: 'web',
       photos: null,
