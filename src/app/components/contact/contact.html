@@ -1,0 +1,110 @@
+<section class="contact-section py-5">
+  <div class="container">
+    <div class="row gx-4 gy-4 align-items-start">
+      <!-- Left Column: Contact Info -->
+      <div class="col-12 col-lg-5">
+        <h3 class="mb-3 section-title fade-up delay-1">Get In Touch</h3>
+
+        <p class="text-muted mb-4 fade-up delay-2">
+          Have a project or want to say hi? Send a message and I'll reply as soon as I can.
+        </p>
+
+        <!-- Contact Info Card -->
+        <div class="contact-card p-4 mb-4 slide-left delay-2">
+          <h6>Contact Info</h6>
+          <p class="mb-1">
+            <strong>Email:</strong>
+            <a href="mailto:mohammadhassanali2020@gmail.com"
+              >mohammadhassanali2020 <br />
+              @gmail.com</a
+            >
+          </p>
+          <p class="mb-1">
+            <strong>Phone:</strong> <a href="tel:+923335653463">+92 333 5653463</a>
+          </p>
+          <p class="mb-0"><strong>Location:</strong> Islamabad, Pakistan</p>
+        </div>
+
+        <!-- Social Follow Card -->
+        <div class="contact-card p-4 mb-4 slide-left delay-3">
+          <h6>Follow</h6>
+          <div class="d-flex gap-2 mt-3">
+            <a
+              target="_blank"
+              class="btn btn-social linkedin fade-up delay-3"
+              href="https://www.linkedin.com/in/muhammad-hassan-ali-626582267/"
+              >LinkedIn</a
+            >
+
+            <a
+              target="_blank"
+              class="btn btn-social github fade-up delay-3"
+              href="https://github.com/hassan324-ll"
+              >GitHub</a
+            >
+
+            <a
+              class="btn btn-social twitter fade-up delay-3"
+              href="https://wa.me/qr/WIUB7WSYVLSEO1 "
+              target="_blank"
+              >Whatsapp</a
+            >
+          </div>
+        </div>
+
+        <!-- Map -->
+        <div class="map-container slide-left delay-4" style="width: 100%; height: 300px">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3320.865616959116!2d73.05674357453083!3d33.66064373830844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df964778660939%3A0x1d6f29e1e948cfe6!2sSAUFIK!5e0!3m2!1sen!2s!4v1763683898645!5m2!1sen!2s"
+            width="600"
+            height="450"
+            style="border: 0; width: 100%; height: 100%"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- Right Column: Contact Form -->
+      <div class="col-12 col-lg-7 slide-right delay-2">
+        <div class="contact-form-card p-5 shadow-sm">
+          <h4 class="mb-4 fade-up delay-2">Send a Message</h4>
+
+          <form (ngSubmit)="submit()" autocomplete="off" class="row g-3">
+            <div class="col-md-6 fade-up delay-2">
+              <label class="form-label">Name</label>
+              <input class="form-control" [(ngModel)]="name" name="name" required />
+            </div>
+
+            <div class="col-md-6 fade-up delay-3">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" [(ngModel)]="email" name="email" required />
+            </div>
+
+            <div class="col-12 fade-up delay-3">
+              <label class="form-label">Subject</label>
+              <input class="form-control" [(ngModel)]="subject" name="subject" />
+            </div>
+
+            <div class="col-12 fade-up delay-4">
+              <label class="form-label">Message</label>
+              <textarea
+                class="form-control"
+                rows="5"
+                [(ngModel)]="message"
+                name="message"
+                required
+              ></textarea>
+            </div>
+
+            <div class="col-12 d-flex align-items-center gap-3 fade-up delay-4">
+              <button class="btn btn-primary btn-send" type="submit" [disabled]="sending">
+                {{ sending ? 'Sending...' : 'Send ' }}
+              </button>
+              <div class="text-success small" *ngIf="success">{{ success }}</div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

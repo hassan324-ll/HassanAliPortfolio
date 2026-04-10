@@ -1,0 +1,108 @@
+<!-- Photo Gallery Modal -->
+<div class="photo-modal-backdrop" *ngIf="showPhotoModal">
+  <div class="photo-modal-dialog">
+    <button class="photo-modal-close" (click)="closePhotoModal()">&times;</button>
+    <div class="photo-modal-content">
+      <div class="photo-modal-zoom-controls mb-2">
+        <button (click)="zoomOut()" class="photo-zoom-btn" [disabled]="zoomLevel <= 1">-</button>
+        <span class="photo-zoom-label">{{ zoomLevel * 100 | number : '1.0-0' }}%</span>
+        <button (click)="zoomIn()" class="photo-zoom-btn" [disabled]="zoomLevel >= 3">+</button>
+      </div>
+      <img
+        [src]="activePhotoUrl"
+        class="photo-modal-img"
+        [style.transform]="'scale(' + zoomLevel + ')'"
+        [style.cursor]="zoomLevel > 1 ? 'move' : 'default'"
+        (mousedown)="startDrag($event)"
+        (mouseup)="endDrag()"
+        (mouseleave)="endDrag()"
+        (mousemove)="onDrag($event)"
+      />
+      <div class="photo-modal-nav" *ngIf="activePhotoList && activePhotoList.length > 1">
+        <button (click)="prevPhoto()" class="photo-nav-btn">&#8592;</button>
+        <span class="photo-modal-index">
+          {{ activePhotoIndex + 1 }} / {{ activePhotoList.length }}
+        </span>
+        <button (click)="nextPhoto()" class="photo-nav-btn">&#8594;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="projects-section py-5">
+  <div class="container">
+    <div class="row align-items-center mb-4">
+      <div class="col-12 col-md-6">
+        <h2 class="fw-bold mb-1">Featured Projects</h2>
+        <p class="text-muted mb-0">
+          Selected projects that highlight my skills in frontend development.
+        </p>
+      </div>
+      <div class="col-12 col-md-6 text-md-end mt-3 mt-md-0">
+        <div class="project-filters d-inline-flex gap-2">
+          <button
+            class="btn btn-sm filter-btn"
+            [class.active]="activeFilter === 'all'"
+            (click)="setFilter('all')"
+          >
+            All
+          </button>
+          <button
+            class="btn btn-sm filter-btn"
+            [class.active]="activeFilter === 'web'"
+            (click)="setFilter('web')"
+          >
+            Web
+          </button>
+          <button
+            class="btn btn-sm filter-btn"
+            [class.active]="activeFilter === 'ui'"
+            (click)="setFilter('ui')"
+          >
+            UI
+          </button>
+          <button
+            class="btn btn-sm filter-btn"
+            [class.active]="activeFilter === 'api'"
+            (click)="setFilter('api')"
+          >
+            API
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-12 col-sm-6 col-lg-4" *ngFor="let p of filteredProjects()">
+        <article class="project-card h-100 shadow-sm">
+          <div class="project-media">
+            <img [src]="p.image" [alt]="p.title" class="img-fluid" />
+            <div class="project-overlay">
+              <button
+                class="btn btn-sm btn-primary"
+                *ngIf="p.photos && p.photos.length"
+                (click)="$event.stopPropagation(); showPhotos(p)"
+              >
+                Photos
+              </button>
+              <a [href]="p.live" target="_blank" rel="noopener" class="btn btn-sm btn-light"
+                >Live</a
+              >
+              <a [href]="p.repo" target="_blank" rel="noopener" class="btn btn-sm btn-outline-light"
+                >Code</a
+              >
+            </div>
+          </div>
+
+          <div class="project-body p-3">
+            <h5 class="project-title mb-1">{{ p.title }}</h5>
+            <p class="text-muted small mb-2">{{ p.description }}</p>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge tech-badge" *ngFor="let t of p.tech">{{ t }}</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

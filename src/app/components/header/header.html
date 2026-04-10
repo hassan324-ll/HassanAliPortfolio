@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg modern-nav sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center gap-3 logo-link" routerLink="/">
+      <span class="logo-mark">
+        <span class="mark-initials">HA</span>
+      </span>
+      <span class="logo-text">
+        <span class="brand-first">Hassan</span>
+        <span class="brand-last">Ali</span>
+      </span>
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#mainNavbar"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-4">
+        <li class="nav-item">
+          <a
+            class="nav-link nav-modern"
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-modern" routerLink="/about-me" routerLinkActive="active">
+            About Me
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-modern" routerLink="/projects" routerLinkActive="active">
+            Projects
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-modern" routerLink="/contact" routerLinkActive="active">
+            Contact
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

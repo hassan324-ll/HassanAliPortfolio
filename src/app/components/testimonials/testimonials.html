@@ -1,0 +1,31 @@
+<section class="testimonials-section py-5">
+  <div class="container text-center">
+    <div class="row justify-content-center mb-4">
+      <div class="col-auto">
+        <div class="testimonial-avatars d-flex gap-3 align-items-center">
+          <ng-container *ngFor="let p of people; let idx = index">
+            <div
+              class="avatar-wrapper"
+              [class.active]="idx === activeIndex"
+              (click)="select(idx)"
+              role="button"
+              aria-label="Show review of {{ p.name }}"
+            >
+              <img [src]="p.avatar" [alt]="p.name" class="avatar" />
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8">
+        <div class="testimonial-content fade-in" [class.active]="animateKey">
+          <p class="testimonial-quote">“{{ current.quote }}”</p>
+          <h5 class="testimonial-name mt-3">{{ current.name }}</h5>
+          <p class="testimonial-role text-muted">{{ current.role }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

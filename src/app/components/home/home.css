@@ -1,0 +1,322 @@
+/* -----------------------
+   Section Background
+------------------------ */
+.what-i-can-do {
+  background: linear-gradient(135deg, #ffffff, #f7f9fc);
+  padding: 80px 0;
+}
+
+/* Section Title */
+.section-title {
+  font-size: 2.3rem;
+  position: relative;
+  animation: fadeUp 1.2s ease forwards;
+  opacity: 0;
+}
+
+/* Fade-in for paragraph */
+.fade-in {
+  animation: fadeUp 1s ease forwards;
+  opacity: 0;
+}
+
+/* entrance timing tweaks */
+.section-title {
+  animation-delay: 0.12s;
+}
+.fade-in {
+  animation-delay: 0.28s;
+}
+
+/* -----------------------
+   Cards
+------------------------ */
+/* SECTION TITLE */
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* SERVICE CARD STYLING */
+.service-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 32px 25px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  transition: all 0.35s ease;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+/* GRADIENT BORDER EFFECT */
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #3b82f6, #9333ea);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+/* CARD HOVER EFFECT */
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* ICON BOX */
+.icon-box {
+  font-size: 38px;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: rgba(37, 99, 235, 0.08);
+  color: #2563eb;
+  transition: all 0.3s ease;
+}
+
+/* ICON GLOW ON HOVER */
+.service-card:hover .icon-box {
+  background: rgba(37, 99, 235, 0.12);
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
+}
+
+/* TITLES AND TEXT */
+.service-title {
+  font-size: 1.15rem;
+  color: #0f172a;
+}
+
+.service-text {
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+/* FADE IN ANIMATION */
+.fade-in {
+  animation: fadeSlideUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* -----------------------
+   Icon Box
+------------------------ */
+.icon-box {
+  font-size: 45px;
+  color: #006eff;
+  margin-bottom: 15px;
+  animation: pulse 2.2s infinite ease-in-out;
+}
+
+/* Card Titles */
+.service-title {
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+/* Card Text */
+.service-text {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* -----------------------
+   Animations
+------------------------ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatSlow {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeScale {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.85;
+  }
+}
+
+/* skills and divider entrance */
+.skills-heading {
+  animation: fadeUp 0.9s ease forwards;
+  opacity: 0;
+  animation-delay: 0.9s;
+}
+.skills-marquee .marquee-wrapper {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeUp 0.9s ease forwards;
+  animation-delay: 1.05s;
+}
+.divider-line {
+  display: inline-block;
+  width: 56px;
+  height: 4px;
+  background: linear-gradient(90deg, #0d6efd, #2a92ff);
+  border-radius: 2px;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: expandLine 0.6s cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+  animation-delay: 0.8s;
+}
+
+@keyframes expandLine {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+/* -----------------------
+   Responsive Adjustments
+------------------------ */
+@media (max-width: 768px) {
+  .service-card {
+    padding: 25px 15px;
+  }
+  .icon-box {
+    font-size: 40px;
+  }
+}
+
+/* Skills Marquee Section */
+/* Section Title */
+.skills-heading {
+  font-size: 2.2rem;
+  color: #111 !important;
+}
+
+/* Light background for marquee */
+.marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+  padding: 18px 0;
+  border-radius: 20px;
+  background: #ffffff;
+  /* border: 1px solid #e5e5e5; */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* TRUE infinite scroll (no restart jump) */
+.marquee {
+  display: flex;
+  gap: 35px;
+  width: max-content;
+  white-space: nowrap;
+  animation: smoothScroll 20s linear infinite;
+}
+
+@keyframes smoothScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* White theme skill items */
+.skill-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+  background: #f6f6f6;
+  border-radius: 50px;
+  border: 1px solid #ddd;
+  transition: 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect */
+.skill-item:hover {
+  transform: scale(1.1);
+  background: #ffffff;
+  border-color: #bbb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Icons */
+.skill-item i {
+  font-size: 1.4rem;
+  color: #007bff;
+}
+
+/* Slower on mobile */
+@media (max-width: 768px) {
+  .marquee {
+    animation-duration: 30s;
+  }
+}

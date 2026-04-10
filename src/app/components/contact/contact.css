@@ -1,0 +1,233 @@
+/* =========================================================
+   CONTACT SECTION — Minimal Premium White Theme
+   ========================================================= */
+
+/* Background */
+.contact-section {
+  background: #f5f7fa; /* softer than pure #f8f9fa */
+  padding: 100px 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Section Title */
+.section-title {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.section-title::after {
+  content: '';
+  width: 60px;
+  height: 3px;
+  background: #007bff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-radius: 50px;
+}
+
+/* Base animation classes */
+.fade-up,
+.slide-left,
+.slide-right {
+  opacity: 0;
+}
+
+.fade-up {
+  animation: fadeUp 0.9s ease forwards;
+}
+
+.slide-left {
+  animation: slideLeft 0.9s ease forwards;
+}
+
+.slide-right {
+  animation: slideRight 0.9s ease forwards;
+}
+
+/* Delay classes */
+.delay-1 {
+  animation-delay: 0.15s;
+}
+.delay-2 {
+  animation-delay: 0.3s;
+}
+.delay-3 {
+  animation-delay: 0.45s;
+}
+.delay-4 {
+  animation-delay: 0.6s;
+}
+
+/* ------------------------------
+   Premium White Contact Cards
+------------------------------ */
+.contact-card,
+.contact-form-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 28px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover,
+.contact-form-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
+}
+
+/* ------------------------------
+   Social Buttons
+------------------------------ */
+.btn-social {
+  border-radius: 40px;
+  padding: 8px 22px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  transition: all 0.3s ease;
+}
+
+.btn-social:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 123, 255, 0.25);
+}
+
+.btn-social.linkedin {
+  background: #0077b5;
+  color: #fff;
+}
+
+.btn-social.github {
+  background: #24292f;
+  color: #fff;
+}
+
+.btn-social.twitter {
+  background: #1da1f2;
+  color: #fff;
+}
+
+/* ------------------------------
+   Form Elements — Minimal Premium
+------------------------------ */
+.contact-form-card input,
+.contact-form-card textarea {
+  border-radius: 12px;
+  border: 1px solid #d7d7d7;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  transition: 0.2s ease;
+  background: #fafafa;
+}
+
+.contact-form-card input:focus,
+.contact-form-card textarea:focus {
+  border-color: #007bff;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.15);
+  outline: none;
+}
+
+/* Send Button */
+.btn-send {
+  border-radius: 50px;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.btn-send:hover {
+  transform: scale(1.07);
+  box-shadow: 0 10px 22px rgba(0, 123, 255, 0.25);
+}
+
+/* ------------------------------
+   Map Container
+------------------------------ */
+.map-container {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* ------------------------------
+   Keyframes
+------------------------------ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Spinner */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #eaeaea;
+  border-top: 3px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ------------------------------
+   Responsive
+------------------------------ */
+@media (max-width: 768px) {
+  .contact-section * {
+    text-align: center !important;
+  }
+
+  .contact-form-card,
+  .contact-card {
+    padding: 20px;
+  }
+
+  .contact-form-card input,
+  .contact-form-card textarea {
+    width: 100%;
+  }
+}

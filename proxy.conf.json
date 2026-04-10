@@ -1,0 +1,11 @@
+{
+  "/gs-contact": {
+    "target": "https://script.google.com",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "pathRewrite": {
+      "^/gs-contact": "/macros/s/AKfycbxwpHLh-JGueb4GaeM59S7t236Pt3DOMDVpxYPXiOixeirckqlsLb8O38b2NpTSG6A/exec"
+    }
+  }
+}
